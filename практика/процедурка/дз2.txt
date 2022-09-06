@@ -1,0 +1,103 @@
+1.
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main(){
+    float R, r, h, l, V, S;
+    cout <<"Enter  R, r, h"<< endl;
+    cin >> R >> r >> h;
+
+    if (R <= 0|| r <= 0|| h <= 0){
+        cout << "You dumb" << endl;
+        return 0;
+    }
+
+    l = sqrt(pow(R-r, 2) + pow(h, 2));
+    V = (1/3.0f) * 3.14 * h * (pow(R, 2) + R*r + pow(r, 2));
+    S = 3.14 * (pow(R, 2) + l * (R + r) + pow(r, 2));
+    
+    cout << "V: " << V << endl;
+    cout << "S: " << S << endl;
+    return 0;
+}
+
+2. 
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main(){
+    cout  << "Enter  a, x: " << endl;
+
+    float x, a, w = 0;
+    cin >> a >> x;
+
+    if (-1 < x < 1 && x != 0) {
+        w = a * log(abs(x));
+    }
+    else if ((a - pow(x, 2)) >= 0) {
+        w = sqrt(a - pow(x, 2));
+    }
+    if (w == 0) {
+        cout << "You dumb" << endl;
+    } else
+        cout << "w: " << w << endl;
+
+    return 0;
+}
+
+3.
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main(){
+    cout <<  "Enter x, y, b "<< endl;
+
+    float x, y, b;
+    cin >> x >> y >> b;
+
+    if ((b - y) > 0 && (b - x) >= 0){
+        float z  = log(b - y) * sqrt(b - x);
+        if (z != 0) {
+            cout << "z:  " << z << endl;
+        } else
+            cout << "You dumb" << endl;
+    }
+    return 0;
+}
+4. 
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << endl << "Enter N: ";
+    int N;
+    cin >> N;
+    for (int i = 0; i < 10; i++){
+        cout << N + i << endl;
+    }
+    return 0;
+}
+
+5.
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+float  func_y(float num){
+    return (pow(num, 2) - 2 * num + 2)/(num - 1);
+}
+
+int main(){
+    for (float x = -4; x <= 4; x += 0.5){
+        cout << "x: " << x << endl;
+        if (x == 1){
+            cout << "you dumb" << endl;
+            return 0;
+        }
+        else cout << "= " << func_y(x) << endl;
+    }
+    return 0;
+}
