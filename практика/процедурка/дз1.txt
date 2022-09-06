@@ -1,0 +1,94 @@
+1. 
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Timofey" << endl;
+    return 0;
+}
+
+
+2. 
+#include <iostream>
+using namespace std;
+
+int main() {
+    float a, b;
+    cin >> a >> b;
+    float sum = a + b;
+    float mult = a * b;
+    float dif = a - b;
+    cout << sum << mult << dif << endl;
+    if (b != 0){
+        float div = a / b;
+        cout << div;
+    }
+    else{
+        cout << "null";
+    }
+    return 0;
+}
+
+3.
+#include <iostream>
+using namespace std;
+
+int main() {
+    float b, c;
+    cin >> b >> c;
+    if (b != 0) {
+        cout << -c / b;
+    } else
+        cout << c;
+    return 0;
+}
+
+4.
+#include <iostream>
+using namespace std;
+# include "cmath"
+
+int main() {
+    cout << "enter a,b,c"<< endl;
+
+    float a, b, c;
+    cin >>a >> b >> c;
+
+    if (a != 0) {
+        float D = b*b - 4 * a * c;
+        float d = pow(D, 0.5);
+
+        if (D < 0){
+            cout << "you dumb";
+            return 0;
+        }
+        else if(D == 0){
+            cout << (-b / 2 * a);
+            return 0;
+        }
+
+        float x_1 = (- b + d) /(2 * a);
+        float x_2 = (-b - d) / (2 * a);
+        cout << x_1 << x_2;
+    } else
+        cout << "you dumb";
+    return 0;
+}
+
+5. 
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Enter status day, curtains, lamp" << endl;
+    bool day, curtains, lamp;
+    cin >> day>> curtains >> lamp;
+    if (day == 1 && curtains == 1  || lamp == 1){
+        cout << "the room is bright" << endl;
+    }
+    else{
+        cout << "the room is dark";
+    }
+    return 0;
+}
+
