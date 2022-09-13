@@ -1,0 +1,30 @@
+1.
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+    string x, y;
+
+    getline(cin, x);
+    ofstream v("summa.txt");
+    v << x;
+    v.close();
+
+    ifstream z("summa.txt");
+    getline(z, y);
+    z.close();
+    vector <int> suma;
+
+    for ( int i =0; i < y.size(); i ++){
+        suma + y[i];
+    }
+
+
+    return 0;
+}
