@@ -1,0 +1,149 @@
+1.
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main(){
+    cout << "Enter S p n";
+
+    float S, p, n;
+    cin >> S >> p >> n;
+
+    if (S == 0 || n == 0 || p == 0) {
+        cout << "you dumb" << endl;
+        return 1;
+    }
+
+    if (n < 0) {
+        cout << "you dumb" << endl;
+        return 1;
+    }
+
+    float r = p / 100;
+
+    float m = (S * r  * pow((1 + r), n)) / (12 *  (pow((1 + r), n) -1));
+    cout << "m: " << m << endl;
+
+    return 0;
+}
+
+
+2.
+#include <iostream>
+#include <cmath>
+using namespace  std;
+
+int main(int argc, char *argv[]){
+    float S, m;
+    int n;
+
+    cout << "Enter S, m,  n: " << endl;
+    cin >> S >> m >> n;
+
+    if (S <= 0 || m <= 0) {
+        cout << "you dumb" << endl;
+        return 1;
+    }
+
+    if (n < 0) {
+        cout << "you dumb" << endl;
+        return 1;
+    }
+
+    float r = 0;
+    float step = 100;
+    float prev_r = 0;
+
+    if (m * 12 * n < S) {
+        cout << "you dumb" << endl;
+        return 1;
+    }
+
+    while (step != 0.00001) {
+        float current_m = (S * r * pow(1 + r, n)) / (12 * (pow(1 + r, n) - 1));
+        if (current_m < m) {
+            prev_r = r;
+            r += step;
+        } else if (current_m == m) {
+            cout << "p:  " << r * 100 << endl;
+            return 0;
+        } else {
+            step /= 10;
+            r = prev_r + step;
+        }
+    }
+    cout << "you dumb" << endl;
+}
+
+3.
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+    string x, y;
+
+    getline(cin, x);
+    ofstream v("1.txt");
+    v << x;
+    v.close();
+
+    ifstream z("1.txt");
+    getline(z, y);
+    z.close();
+
+    cout << y<< endl;
+
+    for (float i = 0; i < y.size(); i++){
+        cout << y[i] << endl;
+    }
+    return 0;
+}
+
+4. 
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+    string x, y;
+
+    getline(cin, x);
+    ofstream v("1.txt");
+    v << x;
+    v.close();
+
+    ifstream z("1.txt");
+    getline(z, y);
+    z.close();
+
+    for (float i = 0; i < y.size(); i++){
+        if(isdigit(y[i])) {
+            cout << y[i] << endl;
+        }
+    }
+    return 0;
+}
+
+5.
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+    string s = "URDLFDDFFVCSMVFDVBFLDACVIOVSIRHUI";
+
+    sort(s.begin(), s.end());
+    cout << s << endl;
+    
+    return 0;
+}
