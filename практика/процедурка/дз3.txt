@@ -64,7 +64,7 @@ int main(int argc, char *argv[]){
         if (current_m < m) {
             prev_r = r;
             r += step;
-        } else if (current_m == m) {
+        } else if ((abs(m - current_m)) < 0.1) {
             cout << "p:  " << r * 100 << endl;
             return 0;
         } else {
@@ -74,7 +74,6 @@ int main(int argc, char *argv[]){
     }
     cout << "you dumb" << endl;
 }
-
 3.
 #include <iostream>
 #include <fstream>
@@ -133,17 +132,47 @@ int main(int argc, char *argv[])
 
 5.
 #include <iostream>
-#include <string>
 #include <algorithm>
-
+#include <cctype>
 using namespace std;
 
-int main(int argc, char *argv[])
-{
-    string s = "URDLFDDFFVCSMVFDVBFLDACVIOVSIRHUI";
+int main(){
+    string s;
+    cout << "Enter stringi" << endl;
+    cin >> s;
 
-    sort(s.begin(), s.end());
-    cout << s << endl;
-    
+    if (s.length() != 30){
+        cout << "you dumb" << endl;
+        return 0;
+    }
+
+    char q;
+    char chars[s.length() + 1];
+    s.copy(chars, s.length() + 1);
+
+    for (int i = 0; i < 30; i++) {
+        for(int j = 0; j < 29; j++) {
+            if(tolower(chars[j]) > tolower(chars[j+1])) {
+                q = chars[j];
+                chars[j] = chars[j+1];
+                chars[j+1] = q;
+            }
+        }
+    }
+
+    for (int i = 0; i < 30; i++) {
+        for(int j = 0; j < 29; j++) {
+            if(chars[j] - chars[j+1] == 32) {
+                q = chars[j];
+                chars[j] = chars[j+1];
+                chars[j+1] = q;
+            }
+        }
+    }
+
+    for (int i = 0; i < 30; i++) {
+        cout << chars[i];
+    }
+
     return 0;
 }
