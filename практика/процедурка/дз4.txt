@@ -68,12 +68,15 @@ double area_rectangle() {
 }
 double area_triangle() {
     cout << "area triangle\n";
-    double a, h;
+    double a, b, c, p;
     cout << "a = ";
     cin >> a;
-    cout << "h = ";
-    cin >> h;
-    return 0.5*a*h;
+    cout << "b = ";
+    cin >> b;
+    cout << "c = ";
+    cin >> c;
+    p = (a + b + c) / 2;
+    return sqrt(p * (p - a) + (p - b) + (p - c));
 }
 double area_circle() {
     cout << "area circle\n";
@@ -82,10 +85,6 @@ double area_circle() {
     cin >> r;
     return M_PI*r*r;
 }
-
-
-
-
 
 int main()
 {
