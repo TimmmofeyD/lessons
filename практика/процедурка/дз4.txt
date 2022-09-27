@@ -1,18 +1,18 @@
 ## 1
- 
 #include <iostream>
 #include <fstream>
 using namespace std;
-int main()
-{   
-    system("chcp 1251");
+int main(){
+
     ofstream fileout("input.txt");
-    // Установить начальную точку генерирования последовательности
+
+    // Set the starting point of sequence generation
     srand(31);
+
     for (int i = 0; i < 10; i++) {
         fileout << rand()<<"\n";
     }
- 
+
     int s=0;
     fileout.close();
     ifstream filein ("input.txt");
@@ -22,22 +22,18 @@ int main()
             filein >> number;
             s += number;
         }
-        cout << "Сумма чисел: " << s;
+        cout << "Sum numbers " << s;
     }
     else {
-        cout << "Нету такого файла(";
+        cout << "you dumb";
     }
     filein.close();
 }
  
- 
- 
- 
- 
 ## 2
 #include <iostream>
 using namespace std;
- 
+
 int sign(float x) {
     if (x > 0)
         return 1;
@@ -46,25 +42,23 @@ int sign(float x) {
     else
         return -1;
 }
- 
-int main()
-{
-    system("chcp 1251");
-    cout << "Задача «Знак числа»\n";
+
+int main(){
+
     cout << "x = ";
     float x;
     cin >> x;
     cout << "sign(x) = " << sign(x);
-}   
+}
  
 ## 3
 #define _USE_MATH_DEFINES
 #include <cmath>
 #include <iostream>
 using namespace std;
- 
+
 double area_rectangle() {
-    cout << "Площадь прямоугольника\n";
+    cout << "area rectangle\n";
     double a,b;
     cout << "a = ";
     cin >> a;
@@ -73,7 +67,7 @@ double area_rectangle() {
     return a * b;
 }
 double area_triangle() {
-    cout << "Площадь треугольника\n";
+    cout << "area triangle\n";
     double a, h;
     cout << "a = ";
     cin >> a;
@@ -82,59 +76,52 @@ double area_triangle() {
     return 0.5*a*h;
 }
 double area_circle() {
-    cout << "Площадь круга\n";
+    cout << "area circle\n";
     double r;
     cout << "r = ";
     cin >> r;
     return M_PI*r*r;
 }
- 
- 
- 
- 
- 
+
+
+
+
+
 int main()
 {
-    system("chcp 1251");
-    cout << "Задача «Геометрические фигуры»\n";
-    cout << "Укажите, площадь какой фигуры нужно вычислить\n\t1 - прямоугольник\n\t2 - треугольник\n\t3 - круг\n";
+    cout << "enter number figure\n\t1 - rectangle\n\t2 - triangle\n\t3 - circle\n";
     int n;
     cin >> n;
     switch (n)
     {
-    case 1:
-        cout<<area_rectangle();
-        break;
-    case 2:
-        cout << area_triangle();
-        break;
-    case 3:
-        cout << area_circle();
-        break;
+        case 1:
+            cout<<area_rectangle();
+            break;
+        case 2:
+            cout << area_triangle();
+            break;
+        case 3:
+            cout << area_circle();
+            break;
     }
 }
- 
- 
- 
+
 ## 4
 #include <iostream>
- 
-using namespace std;
 #include <windows.h>
- 
+
+using namespace std;
 string symb_k_times(string symb, int k) {
     string result = "";
     for (int i = 0; i < k; i++)
         result += symb;
     return result;
 }
- 
+
 int main()
 {
     HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
- 
-    system("chcp 1251");
-    cout << "Задача «Былая слава»\n";
+
     SetConsoleTextAttribute(h, 0);
     int fl = 1;
     cout << symb_k_times(" ", 44)+"\n";
@@ -142,13 +129,13 @@ int main()
         fl = (fl + 1) % 2;
         SetConsoleTextAttribute(h, 63);
         cout << " "+symb_k_times("* ", 8);
- 
+
         SetConsoleTextAttribute(h, 200+fl*55);
         cout<<symb_k_times("_", 27) + "\n";
     }
- 
+
     SetConsoleTextAttribute(h, 255);
- 
+
     for (int i = 0; i < 7; i++) {
         fl = (fl + 1) % 2;
         SetConsoleTextAttribute(h, 200 + fl * 55);
@@ -156,7 +143,7 @@ int main()
     }
     SetConsoleTextAttribute(h, 0);
     return 0;
- 
+
 }
  
 ## 5
@@ -211,41 +198,37 @@ int main() {
 #include <string>
 #include <fstream>
 #include <vector>
- 
+
 using namespace std;
- 
-int main()
-{
-    system("chcp 1251");
-    map<string, int> m = { 
-        {"I", 1}, {"II", 2},{"III", 3},{"IV", 4},{"V", 5},{"VI", 6},{"VII", 7},{"VIII", 8},{"IX", 9}, 
-        {"X", 10}, {"XX", 20}, {"XXX", 30}, {"XL", 40}, {"L", 50}, {"LX", 60}, {"LXX", 70}, {"LXXX", 80}, {"XC", 90},
-        { "C", 100 }, { "CC", 200 }, { "CCC", 300 }, { "CD", 400 }, { "D", 500 }, { "DC", 600 }, { "DCC", 700 }, { "DCCC", 800 }, { "CM", 900 },
-        { "M", 1000 } , { "MM", 2000 }, { "MMM", 3000 }
+
+int main(){
+    map<string, int> m = {
+            {"I", 1}, {"II", 2},{"III", 3},{"IV", 4},{"V", 5},{"VI", 6},{"VII", 7},{"VIII", 8},{"IX", 9},
+            {"X", 10}, {"XX", 20}, {"XXX", 30}, {"XL", 40}, {"L", 50}, {"LX", 60}, {"LXX", 70}, {"LXXX", 80}, {"XC", 90},
+            { "C", 100 }, { "CC", 200 }, { "CCC", 300 }, { "CD", 400 }, { "D", 500 }, { "DC", 600 }, { "DCC", 700 }, { "DCCC", 800 }, { "CM", 900 },
+            { "M", 1000 } , { "MM", 2000 }, { "MMM", 3000 }
     };
     //['I', 'V', 'X', 'L', "C", 'D', 'M']
     string inp;
     cout << "roman_number = ";
     cin >> inp;
-    int n = inp.length();
-    
-    
+
     int i = 0;
     string buff="";
     bool was_error = false;
- 
+
     vector<int> v;
     while (i < inp.length()) {
         if (m.count(buff + inp[i])) {
             buff += inp[i];
- 
+
         }
         else if (!(inp[i] == 'I' || inp[i] == 'V' || inp[i] == 'X' || inp[i] == 'L' || inp[i] == 'C' || inp[i] == 'D' || inp[i] == 'M'))
             was_error = true;
         else {
             v.push_back(m.find(buff)->second);
             buff = inp[i];
- 
+
         }
         i++;
     }
@@ -263,22 +246,18 @@ int main()
         }
     }
     if (was_error)
-        cout << "Ошибка";
+        cout << "you dumb";
     else
         cout << s;
 }
- 
+
  
 ## 7
-// hw4_task7.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
- 
 #include <iostream>
 using namespace std;
-int main()
-{
+int main(){
     long m, b, c, s0=0, s, idx;
-    system("chcp 1251");
+
     cout << "m = ";
     cin >> m;
     cout << "b = ";
@@ -287,42 +266,37 @@ int main()
     cin >> c;
     cout << "i = ";
     cin >> idx;
+
     for (int i = 1; i < idx; i++) {
         s = (m * s0 + b) % c;
         s0 = s;
         cout << i << ") " << s << "\n";
     }
- 
- 
 }
- 
+
 ## 8
- 
 #include <iostream>
 #include <fstream>
 using namespace std;
- 
-int main()
-{
-    system("chcp 1251");
+
+int main(){
     ifstream fin("input.txt");
     int A[10][10];
-    //cout << "Hello World!\n";
     int n, m;
     //cout << "Введите матрицу A"<<"\n";
     //cout << "m = ";
     fin >> m;
     //cout << "n = ";
     fin >> n;
-    
- 
- 
+
+
+
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
             fin >> A[i][j];
         }
     }
- 
+
     float B[10][10];
     int w, t;
     //cout << "Введите матрицу B" << "\n";
@@ -330,13 +304,13 @@ int main()
     fin >> w;
     //cout << "t = ";
     fin >> t;
- 
+
     for (int i = 0; i < w; i++) {
         for (int j = 0; j < t; j++) {
             fin >> B[i][j];
         }
     }
- 
+
     float C[10][10];
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < t; j++) {
@@ -346,11 +320,11 @@ int main()
             }
         }
     }
-    cout << "Матрица С\n";
-    
+    cout << "Matrix C\n";
+
     float s = 0;
     float s_com = 0;
- 
+
     int mini_s = 0, mini_s_com = 0;
     int max_s = 0, max_s_com = 0;
     for (int i = 0; i < m; i++) {
@@ -360,9 +334,9 @@ int main()
             max_s = i;
         s += C[i][0];
     }
-    cout << "1) " <<max_s+1<< " и " <<mini_s+1<<"\n";
- 
- 
+    cout << "1) " <<max_s+1<< " and " <<mini_s+1<<"\n";
+
+
     for (int i = 0; i < m; i++) {
         if (C[i][1] < C[mini_s_com][1])
             mini_s_com = i;
@@ -370,27 +344,23 @@ int main()
             max_s_com = i;
         s_com += C[i][1];
     }
-    cout << "1) " << max_s_com+1 << " и " << mini_s_com+1<<"\n";
- 
+    cout << "1) " << max_s_com+1 << " and " << mini_s_com+1<<"\n";
+
     cout << "3) " << s<<"\n";
     cout << "4) " << s_com<<"\n";
     cout << "5) " << s_com+s<<"\n";
- 
- 
- 
+
+
+
 }
- 
- 
-## 9
- 
- 
+
+
+## 9 
 #include <iostream>
 #include <string>
- 
- 
+
 using namespace std;
- 
- 
+
 string n_to_q(long n, long q) {
     string result="";
     if (n < q) {
@@ -399,7 +369,7 @@ string n_to_q(long n, long q) {
         else
             result.push_back((char)(n + 55));
     }
- 
+
     else {
         result = n_to_q(n / q, q);
         if (n%q < 10 && n%q >= 0)
@@ -409,21 +379,17 @@ string n_to_q(long n, long q) {
     }
     return result;
 }
- 
-int main()
-{
- 
+
+int main(){
     long n, new_q, old_q;
     string input;
-    system("chcp 1251");
-    cout << "Задача «Системы счисления»\n";
     cout << "old_q = ";
     cin >> old_q;
     cout << "number = ";
     cin >> input;
- 
+
     n = 0;
- 
+
     for (char i: input) {
         n *= old_q;
         if (isdigit(i))
@@ -435,5 +401,5 @@ int main()
     cout << "new_q = ";
     cin >> new_q;
     cout << n_to_q(n, new_q)<<"\n";
- 
+
 }
