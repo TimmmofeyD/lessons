@@ -74,6 +74,7 @@ int main(int argc, char *argv[]){
     }
     cout << "you dumb" << endl;
 }
+
 3.
 #include <iostream>
 #include <fstream>
@@ -83,23 +84,35 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    string x, y;
-
-    getline(cin, x);
-    ofstream v("1.txt");
-    v << x;
-    v.close();
-
-    ifstream z("1.txt");
-    getline(z, y);
-    z.close();
-
-    cout << y<< endl;
-
-    for (float i = 0; i < y.size(); i++){
-        cout << y[i] << endl;
+    string s;
+    string ss;
+    cout << "enter \n";
+    while (s.empty() || !ss.empty()) {
+        getline(cin, ss);
+        s += ss + '\n';
     }
-    return 0;
+
+    ofstream fo;
+    fo.open("test");
+    if (!fo.is_open()) {
+        cout << "you dumb\n";
+        return 1;
+    }
+    fo << s;
+    fo.close();
+
+    ifstream file;
+    file.open("test");
+    if (!file.is_open()) {
+        cout << "you dumb\n";
+        return 1;
+    }
+
+    cout << "text tipa\n";
+    while (getline(file, s)) {
+        cout << s << '\n';
+    }
+    file.close();
 }
 
 4. 
@@ -111,23 +124,38 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    string x, y;
+    string s;
+    cout << "enter chisla ";
+    getline(std::cin, s);
 
-    getline(cin, x);
-    ofstream v("1.txt");
-    v << x;
-    v.close();
+    ofstream fo;
+    fo.open("test");
+    if (!fo.is_open()) {
+        std::cout << "You dumb\n";
+        return 1;
+    }
+    fo << s;
+    fo.close();
 
-    ifstream z("1.txt");
-    getline(z, y);
-    z.close();
+    ifstream fi;
+    fi.open("test");
+    if (!fi.is_open()) {
+        cout << "you dumb\n";
+        return 1;
+    }
+    getline(fi, s);
+    fi.close();
 
-    for (float i = 0; i < y.size(); i++){
-        if(isdigit(y[i])) {
-            cout << y[i] << endl;
+    cout << "stroka ";
+    for (int i = 0; i < s.size(); i++) {
+        auto c = s[i];
+        if (isdigit(c)) {
+            cout << c;
+        } else if (i > 0 && isdigit(s[i - 1])) {
+            cout << ' ';
         }
     }
-    return 0;
+    cout << '\n';
 }
 
 5.
