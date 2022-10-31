@@ -255,3 +255,66 @@ int main() {
 }
 
 5. 
+#include <algorithm>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+bool comp(vector <string> v1, vector <string> v2) {
+    return v1[1] < v2[1];
+}
+
+int main(){
+    ifstream file;
+    file.open("input.txt");
+    ofstream ofile;
+    ofile.open("excellent_students.txt");
+
+    int n;
+    string line;
+    string var;
+    file >> n;
+    cout << n << "\n";
+
+    vector <vector <string>> v;
+
+    string id, surname, name, first_name;
+    string mark;
+
+    bool exc_student = true;
+
+    vector <string> l;
+
+    for (int i = 0; i < n; i++) {
+        l.clear();
+        file >> id>>surname>>name>>first_name;
+        l.push_back(id);
+        l.push_back(surname);
+        l.push_back(name);
+        l.push_back(first_name);
+        exc_student = true;
+        for (int j = 0; j < 5; j++) {
+            file>>mark;
+            if (!(mark=="4" || mark=="5"))
+                exc_student = false;
+            l.push_back(mark);
+        }
+        if (exc_student)
+            v.push_back(l);
+
+    }
+    sort(v.begin(), v.end(), comp);
+    for (vector <string> lis : v) {
+        for (string s : lis) {
+            cout << s<<" ";
+            ofile << s<<" ";
+        }
+        cout << "\n";
+        ofile << "\n";
+    }
+
+
+}

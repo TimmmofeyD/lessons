@@ -1,0 +1,43 @@
+#include <algorithm>
+#include <iostream>
+
+using namespace std;
+
+int l[10];
+long no_one_times = 0;
+
+long fact(int n) {
+    long prod = 1;
+    for (int i = 1; i < n + 1; i++)
+        prod *= i;
+    return prod;
+}
+
+void get_count_no_one(int time, int n, int l[]) {
+    if (time == n) {
+        no_one_times++;
+    }
+    else {
+        int rez = 0;
+        for (int i = 0; i < n; i++) {
+            if (i != time && l[i]==-1) {
+                l[i] = time;
+                get_count_no_one(time + 1, n, l);
+                l[i] = -1;
+            }
+        }
+    }
+}
+
+int main(){
+    cout << "baloons\n";
+    cout << "n = ";
+    long n;
+    cin >> n;
+    for (int i = 0; i < n; i++)
+        l[i] = -1;
+    long factorial = fact(n);
+    get_count_no_one(0, n, l);
+    cout << "perestanovok: " << factorial << "\n";
+    cout << "variantov: "<< factorial-no_one_times<<"\n";
+}
