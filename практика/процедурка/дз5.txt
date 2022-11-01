@@ -1,68 +1,69 @@
 1.
 #include <iostream>
-#include <cmath>
 #include <vector>
 
+using namespace std;
+
 int main(int argc, char *argv[]) {
-	unsigned int n;
-	std::cout << "Enter n >> ";
-	std::cin >> n;
+    unsigned int n;
+    cout << "Enter n >> ";
+   cin >> n;
 
-	if (n < 1) {
-		std::cout << "n must be greater then 1\n";
-		return 1;
-	}
+    if (n < 1) {
+        cout << "n must be greater then 1\n";
+        return 1;
+    }
 
-	std::vector<bool> a(n + 1, true);
-	for (int i = 2; i * i <= n; i++) {
-		if (a[i]) {
-			for (int j = i * i; j <= n; j += i) {
-				a[j] = false;
-			}
-		}
-	}
-
-	std::cout << "Numbers: ";
-	for (int i = 2; i < a.size(); i++) {
-		if (a[i]) {
-			std::cout << i << ' ';
-		}
-	}
-	std::cout << '\n';
+   vector<bool> a(n + 1, true);
+    for (int i = 2; i * i <= n; i++) {
+        if (a[i]) {
+            for (int j = i * i; j <= n; j += i) {
+                a[j] = false;
+            }
+        }
+    }
+    cout << "Numbers: ";
+    for (int i = 2; i < a.size(); i++) {
+        if (a[i]) {
+            cout << i << ' ';
+        }
+    }
+    cout << '\n';
 }
 
 2.
 #include <iostream>
-#include <cmath>
+
+using namespace std;
 
 int main(int argc, char *argv[]) {
-	int a, b;
-	std::cout << "Enter a and b >> ";
-	std::cin >> a >> b;
+    int a, b;
+    
+    cout << "Enter a and b  ";
+    cin >> a >> b;
+    
+    int d_a = a, d_b = b;
+    while (d_a != 0 && d_b != 0) {
+        if (d_a >= d_b) {
+            d_a %= d_b;
+        } else {
+            d_b %= d_a;
+        }
+    }
+    cout << "nod div = " << d_a + d_b << '\n';
 
-	// division
-	int d_a = a, d_b = b;
-	while (d_a != 0 && d_b != 0) {
-		if (d_a >= d_b) {
-			d_a %= d_b;
-		} else {
-			d_b %= d_a;
-		}
-	}
-	std::cout << "NOD (div) = " << d_a + d_b << '\n';
-
-	// subtraction
-	int s_a = a, s_b = b;
-	if (s_a == 0) s_a = s_b;
-	if (s_b == 0) s_b = s_a;
-	while (s_a != s_b) {
-		if (s_a > s_b) {
-			s_a -= s_b;
-		} else {
-			s_b -= s_a;
-		}
-	}
-	std::cout << "NOD (sub) = " << s_a << '\n';
+    int s_a = a, s_b = b;
+    if (s_a == 0) s_a = s_b;
+    if (s_b == 0) s_b = s_a;
+    while (s_a != s_b) {
+        if (s_a > s_b) {
+            s_a -= s_b;
+        } else {
+            s_b -= s_a;
+        }
+    }
+    cout << "nod sub = " << s_a << '\n';
+}
 
 3. 
 30
